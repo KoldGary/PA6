@@ -65,6 +65,11 @@ public class ValRef extends Ref {
         return val = v;
     }
 
+    public void copyOut() {
+    // write the local value back to the original reference
+    ref.setRef(val);
+}
+
     public String toString() {
         return val.toString();
     }

@@ -4,8 +4,10 @@ Program
 %%%
     public static Env env = Env.initEnv(); // the initial environment
 %%%
-
-Define
+public Ref evalRef(Env env) {
+    // Return a VarRef so the proc gets a copy-in value and a copy-out target
+    return new VarRef(env.applyEnvRef(var));
+}
 %%%
     // notice that calling $run() triggers a modification
     // of the initial environment
@@ -138,7 +140,7 @@ ProcExp
     }
 
    public Ref evalRef(Env env) {
-        return new ValRef(eval(env));
+            return new VarRef(env.applyEnvRef(var));
     }
 
     public String toString() {
